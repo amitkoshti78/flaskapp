@@ -19,8 +19,8 @@ body {
 }
 
 /* Textarea Custom Styling */
-#payloadArea {
-    height: 200px;
+.payloadArea {
+    height: 100px;
     resize: none;
 }
 

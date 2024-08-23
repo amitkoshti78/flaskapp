@@ -3,7 +3,7 @@ from psycopg2 import OperationalError, errorcodes, errors
 
 conn = None
 
-def db_query(payload):
+def db_query(criteria, payload):
     global conn
     try:
         if conn is not None:
@@ -17,7 +17,7 @@ def db_query(payload):
         print("Cusrsor opened")
 
     try:
-        sql_query = f'SELECT * FROM Customer where cust_name = {payload};'
+        sql_query = f'SELECT * FROM Customer where {criteria} = {payload};'
         cursor.execute(sql_query)
     except psycopg2.OperationalError:
         print("SELECT statement failed")
@@ -29,7 +29,7 @@ def db_query(payload):
         cursor.close()
 
 
-def db_connect(payload):
+def db_connect(criteria, payload):
     global conn
     try:
         conn = psycopg2.connect(database="postgres",
@@ -46,7 +46,7 @@ def db_connect(payload):
         conn = None
     else:
         print("Database connected successfully")
-        db_query(payload)
+        db_query(criteria, payload)
     finally:
         print("Data base closed")
         if conn is not None:

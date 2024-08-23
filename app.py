@@ -22,14 +22,16 @@ def submit_form():
 
     for key, value in data.items():
         match key:
+            case 'criteria':
+                criteria = value
             case 'payload':
                 payload = value
             case _:
                 return jsonify({"message": "Wrong data submitted"})
 
-    print(f"Received data: {payload}")
+    print(f"Received data: {criteria} {payload}")
 
-    response_text = db_connect(payload)
+    response_text = db_connect(criteria, payload)
 
     print(response_text)
 

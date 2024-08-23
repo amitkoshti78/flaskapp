@@ -19,16 +19,16 @@
                 <div class="mb-3">
                     <label for="critria" class="form-label">Select Criteria</label>
                     <select class="form-select" ng-model="formData.criteria" required>
-                        <option value="" disabled>Select Environment</option>
-                        <option value="First_Name">fname</option>
-                        <option value="Last Name">lname</option>
-                        <option value="Customer ID">custid</option>
+                        <option value="" disabled>Select Search Criteria</option>
+                        <option value="cust_fname">First name</option>
+                        <option value="cust_lname">Last name</option>
+                        <option value="cust_id">Customer Id</option>
                     </select>
                 </div>
 
                 <!-- Payload Text Area -->
                 <div class="mb-3">
-                    <label for="payloadArea" class="form-label">Payload</label>
+                    <label for="payloadArea" class="form-label">Enter Data</label>
                     <textarea id="payloadArea" class="form-control" ng-model="formData.payload" required></textarea>
                 </div>
 
