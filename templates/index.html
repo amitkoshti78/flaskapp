@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest API Interface</title>
+    <!-- Link to custom styles -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Phoenix Warehouse Team Rest API Interface Testing</h1>
+
+        <!-- Angular Form -->
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <form ng-submit="submitForm()">
+                <!-- Environment Selector -->
+                <div class="mb-3">
+                    <label for="critria" class="form-label">Select Criteria</label>
+                    <select class="form-select" ng-model="formData.environment" required>
+                        <option value="" disabled>Select Environment</option>
+                        <option value="First_Name">VSETAS</option>
+                        <option value="VSEMAS">VSEMAS</option>
+                        <option value="VSEQAS">VSEQAS</option>
+                    </select>
+                </div>  
+
+                <!-- Branch Selector -->
+                <div class="mb-3">
+                    <label for="branch" class="form-label">Branch</label>
+                    <select class="form-select" ng-model="formData.branch" required>
+                        <option value="" disabled>Select Branch</option>
+                        <option value="61">Branch 61 - Wien</option>
+                        <option value="62">Branch 62 - Graz</option>
+                        <option value="63">Branch 63 - Linz</option>
+                        <option value="64">Branch 63 - Hall</option>
+                        <option value="83">Branch 83 - PWS Hagenbrunn</option>
+                    </select>
+                </div>
+
+                <!-- Interface Selector -->
+                <div class="mb-3">
+                    <label for="interface" class="form-label">Interface</label>
+                    <select class="form-select" ng-model="formData.interface" required>
+                        <option value="" disabled>Select ID</option>
+                        <option value="ID38">ID38 - Virtual Tote Number</option>
+                        <option value="ID29">ID29 - Ebatchinfo</option>
+                        <option value="ID11">ID11 - outbound-delivery-replication</option>
+                        <option value="ID02">ID02 - batch-master-export</option>
+                        <option value="ID05">ID05 - goods-return-receipt</option>
+                        <option value="ID37">ID37 - article-for-counting</option>
+                        <option value="ID01">ID01 - article-master-export</option>
+                        <option value="ID30">ID30 - articledefaultdummybin</option>
+                        <option value="ID35">ID35 - triggerarticledata</option>
+                        <option value="ID03">ID03 - customer-master-export</option>
+                        <option value="ID25">ID25 - tour-master-export</option>
+
+                    </select>
+                </div>
+
+                <!-- Payload Text Area -->
+                <div class="mb-3">
+                    <label for="payloadArea" class="form-label">Payload</label>
+                    <textarea id="payloadArea" class="form-control" ng-model="formData.payload" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+             <!-- Response Field -->
+             <div class="mt-4">
+                <label for="responseArea" class="form-label">Response</label>
+                <textarea id="responseArea" class="form-control" ng-model="responseText" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Link to custom app.js -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
